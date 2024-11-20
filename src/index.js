@@ -2,10 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { Web3ReactProvider } from "@web3-react/core";
+// import { getLibraryForSign } from "./Web3React";
+import {
+  hooks as walletConnectV2Hooks,
+  walletConnectV2,
+} from "./connectors/walletConnectV2.js";
+import { hooks as metaMaskHooks, metaMask } from "./connectors/metaMask";
+
+const connectors = [
+  [walletConnectV2, walletConnectV2Hooks],
+  [metaMask, metaMaskHooks],
+];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Web3ReactProvider connectors={connectors}>
+      <App />
+    </Web3ReactProvider>
   </React.StrictMode>
 );

@@ -1,13 +1,10 @@
-function App() {
-  const handleWalletConnect = () => {
-    console.log("abhi complete nai hua");
-  };
+import WalletConnection from "./WalletConnection";
 
+function App() {
   return (
-    <div className="App">
-      <h2>This is a demo for connecting Crypto Wallets</h2>
-      <button onClick={handleWalletConnect}>Connect Your wallet</button>
-    </div>
+    <>
+      <WalletConnection />
+    </>
   );
 }
 
