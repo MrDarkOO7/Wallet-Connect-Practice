@@ -7,8 +7,9 @@ const useAuth = () => {
       try {
         await connector.activate();
         window.localStorage.setItem("connectorId", connectorId);
+        console.log("Connected successfully");
       } catch (error) {
-        console.error("Connection failed");
+        console.error("Connection failed", error);
       }
     } else {
       console.error("Invalid connector ID");
@@ -27,6 +28,7 @@ const useAuth = () => {
           await connector.resetState();
         }
         window.localStorage.removeItem("connectorId");
+        console.log("Logged out successfully");
       } catch (error) {
         console.error("Logout Failed", error);
       }

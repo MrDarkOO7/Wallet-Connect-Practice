@@ -32,7 +32,10 @@ const WalletConnection = () => {
         </div>
       ) : (
         <div>
-          <button onClick={() => connectWallet("injected")}>
+          <button
+            style={{ margin: 12 }}
+            onClick={() => connectWallet("injected")}
+          >
             Connect MetaMask
           </button>
           <button onClick={() => connectWallet("walletconnect")}>
